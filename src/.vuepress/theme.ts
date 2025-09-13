@@ -1,49 +1,34 @@
 import { hopeTheme } from "vuepress-theme-hope";
-
 import navbar from "./navbar.js";
-import sidebar from "./sidebar.js";
+// import sidebar from "./sidebar.js";
 
 export default hopeTheme({
   hostname: "https://vuepress-theme-hope-docs-demo.netlify.app",
 
   author: {
-    name: "Mr.Hope",
+    name: "PattiGarden",
     url: "https://mister-hope.com",
   },
 
   logo: "logo.png",
 
-  repo: "vuepress-theme-hope/vuepress-theme-hope",
+  // 导航栏
+  navbar,
+  navbarLayout: {
+    start: ["Brand"],
+    center: ["Links"],
+    end: ["Search", "Shop"],
+  },
 
   docsDir: "src",
 
-  // 导航栏
-  navbar,
-
   // 侧边栏
-  sidebar,
+  sidebar: false,
+  // sidebar,
 
   // 页脚
-  footer: "默认页脚",
+  // footer: "默认页脚",
   displayFooter: true,
-
-  // 加密配置
-  encrypt: {
-    config: {
-      "/demo/encrypt.html": {
-        hint: "Password: 1234",
-        password: "1234",
-      },
-    },
-  },
-
-  // 多语言配置
-  metaLocales: {
-    editLink: "在 GitHub 上编辑此页",
-  },
-
-  // 如果想要实时查看任何改变，启用它。注: 这对更新性能有很大负面影响
-  // hotReload: true,
 
   // 此处开启了很多功能用于演示，你应仅保留用到的功能。
   markdown: {
@@ -117,17 +102,21 @@ export default hopeTheme({
     // sandpack: true,
   },
 
+  // 页面信息
+  //  pageInfo: false,
+  pageInfo: ["Date", "Category", "Tag", "PageView"],
+  prevLink: false,
+  nextLink: false,
+
+  //页面元数据
+  lastUpdated: false, // 否显示页面最后更新时间
+  contributors: false, // 是否显示页面贡献者
+  editLink: false, // 是否显示编辑此页链接
+  changelog: false, // 是否显示更新日志链接
+
   // 在这里配置主题提供的插件
   plugins: {
-    // 注意: 仅用于测试! 你必须自行生成并在生产环境中使用自己的评论服务
-    comment: {
-      provider: "Giscus",
-      repo: "vuepress-theme-hope/giscus-discussions",
-      repoId: "R_kgDOG_Pt2A",
-      category: "Announcements",
-      categoryId: "DIC_kwDOG_Pt2M4COD69",
-    },
-
+    catalog: false, // 目录插件
     components: {
       components: ["Badge", "VPCard"],
     },

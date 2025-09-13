@@ -1,30 +1,39 @@
 import { navbar } from "vuepress-theme-hope";
 
 export default navbar([
-  "/",
-  "/demo/",
   {
-    text: "指南",
+    text: "植物系列",
     icon: "lightbulb",
-    prefix: "/guide/",
+    prefix: "/product/",
     children: [
       {
-        text: "Bar",
-        icon: "lightbulb",
-        prefix: "bar/",
-        children: ["baz", { text: "...", icon: "ellipsis", link: "" }],
+        text: "芦荟",
+        link: "aloe/README.md",
       },
       {
-        text: "Foo",
-        icon: "lightbulb",
-        prefix: "foo/",
-        children: ["ray", { text: "...", icon: "ellipsis", link: "" }],
+        text: "仙人球",
+        link: "cactus/README.md",
       },
     ],
   },
   {
-    text: "来到我们的E贝",
-    icon: "book",
-    link: "https://theme-hope.vuejs.press/zh/",
+    text: "分类浏览",
+    prefix: "/scene/",
+    children: [
+      {
+        text: "户外",
+        link: "outdoors.md",
+      },
+    ],
+  },
+  {
+    text: "护理指南",
+    link: "/nursing-guidelines/README.md",
+    icon: "lightbulb",
+  },
+  {
+    text: "关于我们",
+    link: "/about/README.md",
+    icon: "lightbulb",
   },
 ]);
