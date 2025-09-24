@@ -1,21 +1,13 @@
 ---
 home: true
 layout: HomeLayout
-heroText: PattiGarden
 
+heroText: PattiGarden
 tagline: 雨林入户，植造秘境之家
 
 heroFullScreen: true
 bgImage: bg.png
 bgImageDark: bg.png
-
-
-
-
-actions:
-  - text: 探索植物
-    link: /zh/get-started/
-    type: primary
 
 
 copyright: false
