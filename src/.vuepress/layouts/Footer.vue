@@ -4,10 +4,9 @@
       <div class="footer-section">
         <div class="company-info">
           <div class="company-header">
-            <EnvironmentOutlined class="leaf-icon" />
-            <h3 class="company-name">绿境</h3>
+            <h3 class="company-name">Tropical Green Nook</h3>
           </div>
-          <p class="tagline">把热带天堂带入你的家,<br>让生活充满自然活力与异域风情。</p>
+          <p class="tagline">Bring tropical paradise into your home,<br>infusing life with natural vitality and exotic charm.</p>
           <div class="social-icons">
             <WechatOutlined class="social-icon" />
             <WeiboOutlined class="social-icon" />
@@ -68,7 +67,7 @@
       <div class="footer-divider"></div>
       <div class="bottom-content">
         <div class="copyright">
-          © 2023 绿境热带绿植,保留所有权利.
+          © 2023 Green Paradise Tropical Plants, All Rights Reserved.
         </div>
         <div class="bottom-links">
           <a 
@@ -123,35 +122,33 @@ interface FooterSection {
 
 // 快速链接数据
 const quickLinks = ref<FooterSection>({
-  title: '快速链接',
+  title: 'Quick Links',
   links: [
-    { id: 1, name: '首页', url: '/' },
-    { id: 2, name: '植物系列', url: '/products' },
-    { id: 3, name: '分类浏览', url: '/scene' },
-    { id: 4, name: '养护指南', url: '/guide' },
-    { id: 5, name: '关于我们', url: '/about' }
+    { id: 1, name: 'Home', url: '/' },
+    { id: 2, name: 'Plant Series', url: '/products' },
+    { id: 3, name: 'Browse by Category', url: '/scene' },
+    { id: 4, name: 'Care Guide', url: '/guide' },
+    { id: 5, name: 'About Us', url: '/about' }
   ]
 })
 
 // 客户服务数据
 const customerService = ref<FooterSection>({
-  title: '客户服务',
+  title: 'Customer Service',
   links: [
-    { id: 1, name: '配送信息', url: '/delivery' },
-    { id: 2, name: '退换政策', url: '/return' },
-    { id: 3, name: '常见问题', url: '/faq' },
-    { id: 4, name: '联系我们', url: '/contact' },
-    { id: 5, name: '隐私政策', url: '/privacy' }
+    { id: 1, name: 'Delivery Info', url: '/delivery' },
+    { id: 2, name: 'Return Policy', url: '/return' },
+    { id: 3, name: 'FAQ', url: '/faq' },
   ]
 })
 
 // 联系信息数据
 const contactInfo = ref({
-  title: '联系我们',
+  title: 'Contact Us',
   contacts: [
     {
       id: 1,
-      text: '上海市浦东新区张江高科技园区博云路2号',
+      text: 'No.2 Boyun Road, Zhangjiang High-Tech Park, Pudong New Area, Shanghai',
       icon: EnvironmentOutlined,
       action: 'address'
     },
@@ -169,7 +166,7 @@ const contactInfo = ref({
     },
     {
       id: 4,
-      text: '周一至周日 9:00-21:00',
+      text: 'Monday to Sunday 9:00-21:00',
       icon: ClockCircleOutlined,
       action: 'hours'
     }
@@ -178,26 +175,26 @@ const contactInfo = ref({
 
 // 底部链接数据
 const bottomLinks = ref<FooterLink[]>([
-  { id: 1, name: '隐私政策', url: '/privacy' },
-  { id: 2, name: '使用条款', url: '/terms' },
-  { id: 3, name: '网站地图', url: '/sitemap' }
+  { id: 1, name: 'Privacy Policy', url: '/privacy' },
+  { id: 2, name: 'Terms of Use', url: '/terms' },
+  { id: 3, name: 'Sitemap', url: '/sitemap' }
 ])
 
 // 处理链接点击事件
 const handleLinkClick = (link: FooterLink) => {
-  console.log('点击链接:', link.name, link.url)
+  console.log('Click link:', link.name, link.url)
   // 这里可以添加路由跳转逻辑
   // router.push(link.url)
   // 或者打开新页面
   // window.open(link.url, '_blank')
   
   // 示例：显示提示信息
-  alert(`跳转到: ${link.name}`)
+  alert(`Navigate to: ${link.name}`)
 }
 
 // 处理联系信息点击事件
 const handleContactClick = (contact: ContactItem) => {
-  console.log('点击联系信息:', contact.text, contact.action)
+  console.log('Click contact info:', contact.text, contact.action)
   
   switch (contact.action) {
     case 'phone':
@@ -210,14 +207,14 @@ const handleContactClick = (contact: ContactItem) => {
       break
     case 'address':
       // 打开地图
-      alert(`查看地址: ${contact.text}`)
+      alert(`View address: ${contact.text}`)
       break
     case 'hours':
       // 显示营业时间
-      alert(`营业时间: ${contact.text}`)
+      alert(`Business hours: ${contact.text}`)
       break
     default:
-      alert(`联系信息: ${contact.text}`)
+      alert(`Contact info: ${contact.text}`)
   }
 }
 </script>
@@ -240,6 +237,7 @@ const handleContactClick = (contact: ContactItem) => {
   .footer-section {
     .company-info {
       .company-header {
+        margin-top: 20px;
         display: flex;
         align-items: center;
         margin-bottom: 16px;

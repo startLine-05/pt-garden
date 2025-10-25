@@ -7,9 +7,9 @@
           <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&h=400&fit=crop" alt="绿境植物培育基地" />
           <div class="image-overlay">
             <div class="stats-card">
-              <div class="stats-icon">
+              <!-- <div class="stats-icon">
                 <EnvironmentOutlined />
-              </div>
+              </div> -->
               <div class="stats-number">5000+</div>
               <div class="stats-text">我们培育了超过5000种热带植物,为您提供丰富选择</div>
             </div>
@@ -20,15 +20,15 @@
       <!-- 右侧内容区域 -->
       <div class="content-section">
         <div class="content-wrapper">
-          <h1 class="page-title">关于绿境</h1>
+          <h1 class="page-title">About Us</h1>
           
           <div class="text-content">
             <p class="paragraph">
-              绿境成立于2015年,是国内领先的热带绿植专业品牌。我们致力于将来自全球各地的优质热带植物引入中国家庭,让更多人能够在家中感受热带风情,享受自然之美。
+              Founded in 2025, we are a leading professional brand of tropical greenery in Asia. We are committed to bringing high-quality tropical plants from around the world into households, enabling more people to experience the tropical charm and enjoy the beauty of nature right at home.
             </p>
             
             <p class="paragraph">
-              我们拥有专业的温室培育基地和经验丰富的园艺团队,从植物的选育、培育到配送,每一个环节都精益求精,只为将最健康、最美观的植物送到您的手中。
+              We own professional greenhouse cultivation bases and an experienced horticultural team. From the selection and cultivation of plants to their delivery, we strive for excellence in every step—all to deliver the healthiest and most visually appealing plants to your hands.
             </p>
           </div>
 

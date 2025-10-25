@@ -2,7 +2,7 @@ import { navbar } from "vuepress-theme-hope";
 
 export default navbar([
   {
-    text: "植物系列",
+    text: "products",
     icon: "lightbulb",
     prefix: "/product/",
     children: [
@@ -17,7 +17,7 @@ export default navbar([
     ],
   },
   {
-    text: "分类浏览",
+    text: "scene",
     prefix: "/scene/",
     children: [
       {
@@ -27,12 +27,12 @@ export default navbar([
     ],
   },
   {
-    text: "护理指南",
+    text: "nursing-guidelines",
     link: "/nursing-guidelines/README.md",
     icon: "lightbulb",
   },
   {
-    text: "关于我们",
+    text: "about",
     link: "/about/README.md",
     icon: "lightbulb",
   },

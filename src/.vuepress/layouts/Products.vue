@@ -11,7 +11,7 @@
       <div class="products-section">
         <div class="products-grid">
           <div 
-            v-for="product in products" 
+            v-for="product in displayProducts" 
             :key="product.id" 
             class="product-card"
             @click="handleProductClick(product)"
@@ -26,7 +26,7 @@
               <h3 class="product-name">{{ product.name }}</h3>
               <p class="product-description">{{ product.description }}</p>
               <div class="product-footer">
-                <span class="product-price">¥{{ product.price }}</span>
+                <span class="product-price">$ {{ product.averagePrice }}</span>
               </div>
             </div>
           </div>
@@ -47,6 +47,9 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { RightOutlined } from '@ant-design/icons-vue'
+import { useData } from './use-data.js'
+
+const { displayProducts } = useData()
 
 // 类型定义
 interface ProductBadge {
@@ -64,44 +67,44 @@ interface Product {
 }
 
 // 产品数据
-const products = ref<Product[]>([
-  {
-    id: 1,
-    name: '龟背竹',
-    description: '大型观叶植物,叶片独特,适合客厅摆放',
-    price: 129,
-    image: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=300&h=200&fit=crop',
-    badge: {
-      text: '畅销',
-      type: 'bestseller'
-    }
-  },
-  {
-    id: 2,
-    name: '天堂鸟',
-    description: '造型优雅,叶片宽大,热带风情十足',
-    price: 199,
-    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=200&fit=crop'
-  },
-  {
-    id: 3,
-    name: '绿萝',
-    description: '生命力强,净化空气,适合新手养护',
-    price: 59,
-    image: 'https://images.unsplash.com/photo-1501139083538-0139583c060f?w=300&h=200&fit=crop',
-    badge: {
-      text: '新品',
-      type: 'new'
-    }
-  },
-  {
-    id: 4,
-    name: '琴叶榕',
-    description: '叶片独特似提琴,高大挺拔,气质优雅',
-    price: 249,
-    image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=300&h=200&fit=crop'
-  }
-])
+// const products = ref<Product[]>([
+//   {
+//     id: 1,
+//     name: '龟背竹',
+//     description: '大型观叶植物,叶片独特,适合客厅摆放',
+//     price: 129,
+//     image: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=300&h=200&fit=crop',
+//     badge: {
+//       text: '畅销',
+//       type: 'bestseller'
+//     }
+//   },
+//   {
+//     id: 2,
+//     name: '天堂鸟',
+//     description: '造型优雅,叶片宽大,热带风情十足',
+//     price: 199,
+//     image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=200&fit=crop'
+//   },
+//   {
+//     id: 3,
+//     name: '绿萝',
+//     description: '生命力强,净化空气,适合新手养护',
+//     price: 59,
+//     image: 'https://images.unsplash.com/photo-1501139083538-0139583c060f?w=300&h=200&fit=crop',
+//     badge: {
+//       text: '新品',
+//       type: 'new'
+//     }
+//   },
+//   {
+//     id: 4,
+//     name: '琴叶榕',
+//     description: '叶片独特似提琴,高大挺拔,气质优雅',
+//     price: 249,
+//     image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=300&h=200&fit=crop'
+//   }
+// ])
 
 // 处理产品卡片点击事件
 const handleProductClick = (product: Product) => {
