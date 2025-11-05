@@ -4,15 +4,18 @@
       <div class="footer-section">
         <div class="company-info">
           <div class="company-header">
-            <h3 class="company-name">Tropical Green Nook</h3>
+            <h3 class="company-name">BotanicalCollector</h3>
           </div>
-          <p class="tagline">Bring tropical paradise into your home,<br>infusing life with natural vitality and exotic charm.</p>
+          <p class="tagline">{{ description }}</p>
           <div class="social-icons">
-            <WechatOutlined class="social-icon" />
-            <WeiboOutlined class="social-icon" />
-            <QqOutlined class="social-icon" />
-            <InstagramOutlined class="social-icon" />
-            <FacebookOutlined class="social-icon" />
+            <div
+              v-for="social in socialIcons"
+              :key="social.id"
+              class="social-icon"
+              @click="handleSocialClick(social)"
+            >
+              <component :is="social.icon" />
+            </div>
           </div>
         </div>
       </div>
@@ -33,27 +36,12 @@
       </div>
 
       <div class="footer-section">
-        <h4 class="section-title">{{ customerService.title }}</h4>
-        <ul class="link-list">
-          <li v-for="link in customerService.links" :key="link.id">
-            <a 
-              href="#" 
-              class="footer-link"
-              @click="handleLinkClick(link)"
-            >
-              {{ link.name }}
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <div class="footer-section">
         <h4 class="section-title">{{ contactInfo.title }}</h4>
         <div class="contact-info">
           <div 
             v-for="contact in contactInfo.contacts" 
             :key="contact.id" 
-            class="contact-item"
+            :class="['contact-item', contact.action === 'ebay' ? 'ebay-item' : '']"
             @click="handleContactClick(contact)"
           >
             <component :is="contact.icon" class="contact-icon" />
@@ -90,16 +78,16 @@
 import { ref } from 'vue'
 import {
   EnvironmentOutlined,
-  WechatOutlined,
-  WeiboOutlined,
-  QqOutlined,
   InstagramOutlined,
   FacebookOutlined,
   PhoneOutlined,
   MailOutlined,
   ClockCircleOutlined,
-  UpOutlined
+  UpOutlined,
+  MessageOutlined,
+  LinkOutlined
 } from '@ant-design/icons-vue'
+import { h } from 'vue'
 
 // 类型定义
 interface FooterLink {
@@ -113,12 +101,57 @@ interface ContactItem {
   text: string
   icon: any
   action?: string
+  url?: string
 }
 
 interface FooterSection {
   title: string
   links: FooterLink[]
 }
+
+interface SocialIcon {
+  id: number
+  name: string
+  icon: any
+  url: string
+}
+
+const description = `We have over 30 greenhouses, located at Hainan, Guangxi,Yunnan, Beijing.We specialize in the supply of rare plants, including Euphorbia, Pachypodium, Cactus, Primulina, Bulbs, Aloe, Agave, Othonna, and more. All plants are carefully cultivated in our own greenhouses to ensure they are healthy, stable, and of high quality.`
+
+// TikTok 图标组件（自定义 SVG）
+const TikTokIcon = {
+  render: () => h('svg', {
+    viewBox: '0 0 24 24',
+    fill: 'currentColor',
+    style: { width: '1em', height: '1em', fontSize: 'inherit' }
+  }, [
+    h('path', {
+      d: 'M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.89 2.89 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z'
+    })
+  ])
+}
+
+// 社交图标数据
+const socialIcons = ref<SocialIcon[]>([
+  {
+    id: 1,
+    name: 'Facebook',
+    icon: FacebookOutlined,
+    url: 'https://www.facebook.com/people/Patti-Caudex-Supply/pfbid0gi2aXMQf5KahmHU6q5D3grhBFpnevQbq58KJqPoJG4TkoUgKnemQf76X2Q9VgMsrl' // 链接待定
+  },
+  {
+    id: 2,
+    name: 'Instagram',
+    icon: InstagramOutlined,
+    url: 'https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fbotanical_collector%2F&is_from_rle' // 链接待定
+  },
+  {
+    id: 3,
+    name: 'TikTok',
+    icon: TikTokIcon,
+    url: 'https://www.tiktok.com/@patticaudexsupply' // 链接待定
+  }
+])
 
 // 快速链接数据
 const quickLinks = ref<FooterSection>({
@@ -132,43 +165,37 @@ const quickLinks = ref<FooterSection>({
   ]
 })
 
-// 客户服务数据
-const customerService = ref<FooterSection>({
-  title: 'Customer Service',
-  links: [
-    { id: 1, name: 'Delivery Info', url: '/delivery' },
-    { id: 2, name: 'Return Policy', url: '/return' },
-    { id: 3, name: 'FAQ', url: '/faq' },
-  ]
-})
-
 // 联系信息数据
 const contactInfo = ref({
   title: 'Contact Us',
   contacts: [
     {
       id: 1,
-      text: 'No.2 Boyun Road, Zhangjiang High-Tech Park, Pudong New Area, Shanghai',
-      icon: EnvironmentOutlined,
-      action: 'address'
+      text: 'Whatsapp: +447512658910',
+      icon: MessageOutlined,
+      action: 'whatsapp',
+      url: 'https://wa.me/447512658910'
     },
     {
       id: 2,
-      text: '400-888-9999',
+      text: 'Phone: +447512658910',
       icon: PhoneOutlined,
-      action: 'phone'
+      action: 'phone',
+      url: 'tel:+447512658910'
     },
     {
       id: 3,
-      text: 'service@lujing.com',
+      text: 'Email: patticaudex@gmail.com',
       icon: MailOutlined,
-      action: 'email'
+      action: 'email',
+      url: 'mailto:patticaudex@gmail.com'
     },
     {
       id: 4,
-      text: 'Monday to Sunday 9:00-21:00',
-      icon: ClockCircleOutlined,
-      action: 'hours'
+      text: 'Ebay: https://www.ebay.com/usr/pattigarden_rarecactuscollector',
+      icon: LinkOutlined,
+      action: 'ebay',
+      url: 'https://www.ebay.com/usr/pattigarden_rarecactuscollector'
     }
   ] as ContactItem[]
 })
@@ -192,9 +219,25 @@ const handleLinkClick = (link: FooterLink) => {
   alert(`Navigate to: ${link.name}`)
 }
 
+// 处理社交图标点击事件
+const handleSocialClick = (social: SocialIcon) => {
+  console.log('Click social icon:', social.name, social.url)
+  if (social.url && social.url !== '#') {
+    window.open(social.url, '_blank')
+  } else {
+    console.log(`${social.name} 链接待定`)
+  }
+}
+
 // 处理联系信息点击事件
 const handleContactClick = (contact: ContactItem) => {
   console.log('Click contact info:', contact.text, contact.action)
+  
+  // 如果有URL，直接打开链接
+  if (contact.url) {
+    window.open(contact.url, '_blank')
+    return
+  }
   
   switch (contact.action) {
     case 'phone':
@@ -204,6 +247,14 @@ const handleContactClick = (contact: ContactItem) => {
     case 'email':
       // 发送邮件
       window.open(`mailto:${contact.text}`)
+      break
+    case 'whatsapp':
+      // 打开WhatsApp
+      window.open(`https://wa.me/447512658910`, '_blank')
+      break
+    case 'ebay':
+      // 打开Ebay链接
+      window.open(contact.url || 'https://www.ebay.com/usr/pattigarden_rarecactuscollector', '_blank')
       break
     case 'address':
       // 打开地图
@@ -226,11 +277,11 @@ const handleContactClick = (contact: ContactItem) => {
   padding: 40px 0 0;
 
   .footer-content {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 0 20px;
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    grid-template-columns: 3fr 1fr 2fr;
     gap: 40px;
   }
 
@@ -268,14 +319,14 @@ const handleContactClick = (contact: ContactItem) => {
         gap: 12px;
 
         .social-icon {
-          width: 32px;
-          height: 32px;
+          width: 40px;
+          height: 40px;
           border-radius: 50%;
           background-color: rgba(255, 255, 255, 0.1);
           display: flex;
           align-items: center;
           justify-content: center;
-          font-size: 16px;
+          font-size: 20px;
           color: white;
           cursor: pointer;
           transition: background-color 0.3s;
@@ -337,6 +388,7 @@ const handleContactClick = (contact: ContactItem) => {
 
         span {
           color: white;
+          white-space: nowrap;
         }
       }
     }

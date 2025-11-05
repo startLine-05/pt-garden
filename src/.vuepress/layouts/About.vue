@@ -11,7 +11,7 @@
                 <EnvironmentOutlined />
               </div> -->
               <div class="stats-number">5000+</div>
-              <div class="stats-text">我们培育了超过5000种热带植物,为您提供丰富选择</div>
+              <div class="stats-text">We cultivate over 500 species of tropical plants, providing you with abundant choices</div>
             </div>
           </div>
         </div>
@@ -24,11 +24,15 @@
           
           <div class="text-content">
             <p class="paragraph">
-              Founded in 2025, we are a leading professional brand of tropical greenery in Asia. We are committed to bringing high-quality tropical plants from around the world into households, enabling more people to experience the tropical charm and enjoy the beauty of nature right at home.
+              We specialize in rare and distinctive green plants, including Euphorbia, Pachypodium, Cactus, Primulina, Bulbs, Aloe, Agave, Othonna, and many other exceptional species.
             </p>
             
             <p class="paragraph">
-              We own professional greenhouse cultivation bases and an experienced horticultural team. From the selection and cultivation of plants to their delivery, we strive for excellence in every step—all to deliver the healthiest and most visually appealing plants to your hands.
+              With premium quality, professional packaging, efficient logistics, and fair pricing, our plants have reached customers across the United States, Switzerland, Germany, the United Kingdom, Japan, and South Korea — earning lasting trust and appreciation.
+            </p>
+            
+            <p class="paragraph">
+              Led by two founders — one devoted to plant cultivation and the other to market research — we combine expertise and global insight to deliver healthy, high-quality plants to enthusiasts and professional buyers worldwide.
             </p>
           </div>
 
@@ -38,21 +42,21 @@
               <div class="stat-icon">
                 <EnvironmentOutlined />
               </div>
-              <div class="stat-text">3个培育基地</div>
+              <div class="stat-text">3 Cultivation Bases</div>
             </div>
             
             <div class="stat-item">
               <div class="stat-icon">
                 <TeamOutlined />
               </div>
-              <div class="stat-text">50+专业园艺师</div>
+              <div class="stat-text">50+ Professional Horticulturists</div>
             </div>
             
             <div class="stat-item">
               <div class="stat-icon">
                 <CalendarOutlined />
               </div>
-              <div class="stat-text">8年行业经验</div>
+              <div class="stat-text">8 Years of Experience</div>
             </div>
           </div>
         </div>

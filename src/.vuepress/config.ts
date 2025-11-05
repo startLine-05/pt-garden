@@ -6,7 +6,7 @@ export default defineUserConfig({
   base: "/pt-garden/",
 
   lang: "zh-CN",
-  title: "Tropical Green Nook",
+  title: "BotanicalCollector",
   description: "PT花园演示",  
 
   theme,
