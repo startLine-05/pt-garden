@@ -17,7 +17,7 @@
     </div>
 
     <!-- 服务特点（使用Ant Design Icons） -->
-    <div class="features-container">
+    <!-- <div class="features-container">
       <div class="feature-card">
         <SmileOutlined  class="feature-icon" />
         <span class="feature-text">Low Shipping</span>
@@ -30,7 +30,7 @@
         <RedoOutlined class="feature-icon" />
         <span class="feature-text">30-Day Returns</span>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 

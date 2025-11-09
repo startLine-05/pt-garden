@@ -5,7 +5,7 @@ import Products from "./Products.vue";
 import Scene from "./Scene.vue";
 import Advantage from "./Advantage.vue";
 import Guide from "./Guide.vue";
-import Evaluate from "./Evaluate.vue";
+import Display from "./Display.vue";
 import About from "./About.vue";
 import Footer from "./Footer.vue";
 </script>
@@ -21,8 +21,8 @@ import Footer from "./Footer.vue";
       <Products></Products>
       <Scene></Scene>
       <Advantage></Advantage>
-      <Guide></Guide>
-      <Evaluate></Evaluate>
+      <!-- <Guide></Guide> -->
+      <Display></Display>
       <About></About>
       <Footer></Footer>
     </template>

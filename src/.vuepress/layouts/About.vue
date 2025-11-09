@@ -1,257 +1,219 @@
 <template>
-  <div class="about-page">
-    <div class="about-container">
-      <!-- 左侧图片区域 -->
-      <div class="image-section">
-        <div class="main-image">
-          <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&h=400&fit=crop" alt="绿境植物培育基地" />
-          <div class="image-overlay">
-            <div class="stats-card">
-              <!-- <div class="stats-icon">
-                <EnvironmentOutlined />
-              </div> -->
-              <div class="stats-number">5000+</div>
-              <div class="stats-text">We cultivate over 500 species of tropical plants, providing you with abundant choices</div>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <!-- 右侧内容区域 -->
-      <div class="content-section">
-        <div class="content-wrapper">
-          <h1 class="page-title">About Us</h1>
-          
-          <div class="text-content">
-            <p class="paragraph">
-              We specialize in rare and distinctive green plants, including Euphorbia, Pachypodium, Cactus, Primulina, Bulbs, Aloe, Agave, Othonna, and many other exceptional species.
-            </p>
-            
-            <p class="paragraph">
-              With premium quality, professional packaging, efficient logistics, and fair pricing, our plants have reached customers across the United States, Switzerland, Germany, the United Kingdom, Japan, and South Korea — earning lasting trust and appreciation.
-            </p>
-            
-            <p class="paragraph">
-              Led by two founders — one devoted to plant cultivation and the other to market research — we combine expertise and global insight to deliver healthy, high-quality plants to enthusiasts and professional buyers worldwide.
-            </p>
-          </div>
-
-          <!-- 统计数据 -->
-          <div class="stats-section">
-            <div class="stat-item">
-              <div class="stat-icon">
-                <EnvironmentOutlined />
-              </div>
-              <div class="stat-text">3 Cultivation Bases</div>
-            </div>
-            
-            <div class="stat-item">
-              <div class="stat-icon">
-                <TeamOutlined />
-              </div>
-              <div class="stat-text">50+ Professional Horticulturists</div>
-            </div>
-            
-            <div class="stat-item">
-              <div class="stat-icon">
-                <CalendarOutlined />
-              </div>
-              <div class="stat-text">8 Years of Experience</div>
-            </div>
-          </div>
-        </div>
+  <div class="about-container">
+    <!-- 左侧图片区域 -->
+    <div class="image-section">
+      <div class="main-image">
+        <img src="../public/about.png" alt="about" />
       </div>
     </div>
+
+    <!-- 右侧内容区域 -->
+    <div class="content-section">
+      <div class="content-wrapper">
+        <h1 class="page-title">About us</h1>
+
+        <div class="text-content">
+          <div class="text-content-left">
+            <p class="paragraph">
+              We specialize in rare and distinctive green plants, including Euphorbia, Pachypodium, Cactus, Primulina,
+              Bulbs, Aloe, Agave, Othonna, and many other exceptional species.
+            </p>
+
+            <p class="paragraph">
+              With premium quality, professional packaging, efficient logistics, and fair pricing, our plants have
+              reached customers across the United States, Switzerland, Germany, the United Kingdom, Japan, and South
+              Korea — earning lasting trust and appreciation.
+            </p>
+
+            <p class="paragraph">
+              Led by two founders — one devoted to plant cultivation and the other to market research — we combine
+              expertise and global insight to deliver healthy, high-quality plants to enthusiasts and professional
+              buyers worldwide. With premium quality, professional packaging, efficient logistics, and fair pricing, our
+              plants have reached customers across the United States, Switzerland, Germany, the United Kingdom, Japan,
+              and South Korea — earning lasting trust and appreciation.
+            </p>
+          </div>
+
+          <img class="text-content-right" src="../public/map.png" alt="map" />
+
+        </div>
+      </div>
+
+      <button class="learn-more-button">Learn more about us</button>
+
+      <img class="about-image" src="../public/my.png" alt="about-image" />
+    </div>
   </div>
+
 </template>
 
 <script setup lang="ts">
-import {
-  EnvironmentOutlined,
-  TeamOutlined,
-  CalendarOutlined
-} from '@ant-design/icons-vue'
 </script>
 
 <style scoped>
-.about-page {
-  background-color: #eaeeeb;
-  padding: 80px 0;
-}
-
 .about-container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 40px;
+  max-width: 100%;
+  margin: 0;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: start;
+  grid-template-columns: 2fr 3fr;
+  gap: 0;
+  align-items: stretch;
+  min-height: 100vh;
 }
 
+/* 左侧图片区域 */
 .image-section {
   position: relative;
 }
 
 .main-image {
-  position: relative;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 100%;
+  min-height: 60vh;
 }
 
 .main-image img {
   width: 100%;
-  height: 600px;
-  object-fit: cover;
-  filter: sepia(30%) contrast(0.9) brightness(0.8);
-}
-
-.image-overlay {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-}
-
-.stats-card {
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  max-width: 280px;
-}
-
-.stats-icon {
-  color: #52c41a;
-  font-size: 24px;
-  margin-bottom: 8px;
-  width: 40px;
-  height: 40px;
-  background-color: #d7e3d8;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.stats-number {
-  font-size: 28px;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 8px;
-}
-
-.stats-text {
-  font-size: 14px;
-  color: #666;
-  line-height: 1.5;
-}
-
-.content-section {
-  padding: 40px 0;
-  display: flex;
-  align-items: center;
   height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 右侧内容区域 */
+.content-section {
+  background-color: #134a21;
+  padding: 60px 50px;
+  display: flex;
+  flex-direction: column; 
+  align-items: flex-start;
+  min-height: 100vh;
+  position: relative;
 }
 
 .content-wrapper {
-  max-width: 600px;
   width: 100%;
 }
 
 .page-title {
-  font-size: 42px;
+  font-size: 88px;
   font-weight: bold;
-  color: #000000;
-  margin-bottom: 40px;
-  line-height: 1.1;
+  color: #ffffff;
+  margin-bottom: 30px;
+  line-height: 1.2;
+  font-family: 'Georgia', 'Times New Roman', serif;
 }
 
 .text-content {
-  margin-bottom: 40px;
+  margin-bottom: 30px;
+  display: flex;
+}
+
+.text-content-left {
+  max-width: 600px;
+  margin-right: 50px;
+}
+
+.text-content-right {
+  width: 300px;
+  height: 300px;
 }
 
 .paragraph {
   font-size: 16px;
   line-height: 1.7;
-  color: #333333;
-  margin-bottom: 24px;
+  color: #ffffff;
+  margin-bottom: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
-.stats-section {
-  display: flex;
-  gap: 40px;
-  flex-wrap: wrap;
-  margin-top: 50px;
-}
-
-.stat-item {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 0;
-  background: transparent;
-  border-radius: 0;
-  box-shadow: none;
-  transition: none;
-}
-
-.stat-item:hover {
-  transform: none;
-  box-shadow: none;
-}
-
-.stat-icon {
-  color: #52c41a;
-  font-size: 20px;
-  width: 36px;
-  height: 36px;
-  background-color: #d7e3d8;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 36px;
-}
-
-.stat-text {
+/* 按钮样式 */
+.learn-more-button {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1.5px solid #ffffff;
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 25px;
   font-size: 16px;
   font-weight: 500;
-  color: #333333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 40px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.learn-more-button:hover {
+  background-color: #debe48;
+  color: #ffffff;
+  border: none;
+}
+
+
+
+@media (max-width: 1024px) {
+  .about-container {
+    grid-template-columns: 1fr;
+  }
+
+  .main-image {
+    min-height: 50vh;
+  }
+
+  .content-section {
+    min-height: auto;
+    padding: 40px 30px;
+  }
+
+  .images-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+  }
+
+  .image-top-right {
+    grid-column: 1;
+    grid-row: 1;
+    margin-left: 0;
+    max-width: 100%;
+  }
+
+  .image-bottom-left {
+    grid-column: 1;
+    grid-row: 2;
+    max-width: 100%;
+  }
+
+  .text-box-with-arrow {
+    grid-column: 1;
+    grid-row: 3;
+    padding-left: 0;
+    padding-top: 20px;
+  }
+
+  .arrow-line {
+    display: none;
+  }
 }
 
 @media (max-width: 768px) {
-  .about-container {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    padding: 0 20px;
-  }
-  
-  .page-title {
-    font-size: 32px;
-  }
-  
-  .stats-section {
-    flex-direction: column;
-    gap: 20px;
-    margin-top: 30px;
-  }
-  
-  .stat-item {
-    justify-content: flex-start;
-  }
-  
-  .main-image img {
-    height: 400px;
-  }
-  
-  .stats-card {
-    max-width: 100%;
-    margin: 0 20px;
-  }
-  
   .content-section {
-    padding: 20px 0;
+    padding: 30px 20px;
+  }
+
+  .page-title {
+    font-size: 36px;
+  }
+
+  .paragraph {
+    font-size: 14px;
+  }
+
+  .image-top-right img,
+  .image-bottom-left img {
+    height: 150px;
+  }
+
+  .text-box {
+    max-width: 100%;
   }
 }
 </style>
