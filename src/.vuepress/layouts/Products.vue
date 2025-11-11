@@ -1,32 +1,55 @@
 <template>
   <div class="products-page">
     <div class="products-container">
-      <!-- 页面标题 -->
-      <div class="page-header">
-        <h1 class="page-title">精选热带绿植</h1>
-        <p class="page-description">每一株植物都有其独特的魅力,为你的空间带来不同的氛围和感受。我们精心挑选了最受欢迎的热带植物,让你的家充满生机。</p>
-      </div>
-
       <!-- 产品卡片 -->
       <div class="products-section">
+        <!-- 标题区域 -->
+        <div class="section-header">
+          <h3 class="section-title">Shop Holiday Decor</h3>
+          <a href="#" class="view-all-link" @click.prevent="handleViewAll">
+            View all
+          </a>
+        </div>
+        
         <div class="products-grid">
           <div 
             v-for="product in displayProducts" 
-            :key="product.id" 
+            :key="product.name" 
             class="product-card"
-            @click="handleProductClick(product)"
           >
-            <div class="product-image">
-              <img :src="product.image" :alt="product.name" />
-              <div v-if="product.badge" class="product-badge" :class="product.badge.type">
-                {{ product.badge.text }}
+            <div class="product-image-wrapper">
+              <div class="product-image">
+                <img :src="product.image" :alt="product.name" />
+                <!-- 右上角收藏图标 -->
+                <button 
+                  class="wishlist-icon" 
+                  @click.stop="handleWishlistClick(product)"
+                  aria-label="Add to wishlist"
+                >
+                  <StarOutlined />
+                </button>
+                <!-- 左下角售罄横幅 -->
+                <div v-if="product.soldOut" class="sold-out-banner">
+                  Temporarily sold out
+                </div>
               </div>
             </div>
             <div class="product-info">
+              <!-- 品牌/分类 -->
+              <div class="product-brand">{{ product.species || 'Botanical' }}</div>
+              <!-- 产品名称 -->
               <h3 class="product-name">{{ product.name }}</h3>
-              <p class="product-description">{{ product.description }}</p>
+              <!-- 价格和按钮 -->
               <div class="product-footer">
-                <span class="product-price">$ {{ product.averagePrice }}</span>
+                <span class="product-price">${{ product.averagePrice?.toFixed(2) || '0.00' }}</span>
+                <button 
+                  class="add-to-cart-button" 
+                  @click.stop="handleAddToCart(product)"
+                  aria-label="Add to cart"
+                >
+                  <PlusOutlined class="plus-icon" />
+                  <ShoppingCartOutlined class="cart-icon" />
+                </button>
               </div>
             </div>
           </div>
@@ -46,7 +69,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { RightOutlined } from '@ant-design/icons-vue'
+import { RightOutlined, StarOutlined, PlusOutlined, ShoppingCartOutlined } from '@ant-design/icons-vue'
 import { useData } from './use-data.js'
 
 const { displayProducts } = useData()
@@ -66,56 +89,20 @@ interface Product {
   badge?: ProductBadge
 }
 
-// 产品数据
-// const products = ref<Product[]>([
-//   {
-//     id: 1,
-//     name: '龟背竹',
-//     description: '大型观叶植物,叶片独特,适合客厅摆放',
-//     price: 129,
-//     image: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=300&h=200&fit=crop',
-//     badge: {
-//       text: '畅销',
-//       type: 'bestseller'
-//     }
-//   },
-//   {
-//     id: 2,
-//     name: '天堂鸟',
-//     description: '造型优雅,叶片宽大,热带风情十足',
-//     price: 199,
-//     image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=200&fit=crop'
-//   },
-//   {
-//     id: 3,
-//     name: '绿萝',
-//     description: '生命力强,净化空气,适合新手养护',
-//     price: 59,
-//     image: 'https://images.unsplash.com/photo-1501139083538-0139583c060f?w=300&h=200&fit=crop',
-//     badge: {
-//       text: '新品',
-//       type: 'new'
-//     }
-//   },
-//   {
-//     id: 4,
-//     name: '琴叶榕',
-//     description: '叶片独特似提琴,高大挺拔,气质优雅',
-//     price: 249,
-//     image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=300&h=200&fit=crop'
-//   }
-// ])
 
-// 处理产品卡片点击事件
-const handleProductClick = (product: Product) => {
-  console.log('点击产品:', product.name)
-  // 这里可以添加路由跳转到产品详情页
-  // router.push(`/product/${product.id}`)
-  
-  // 示例：显示提示信息
-  alert(`查看产品详情: ${product.name}`)
+// 处理收藏点击事件
+const handleWishlistClick = (product: any) => {
+  console.log('添加到收藏:', product.name)
+  // 这里可以添加收藏逻辑
+  // toggleWishlist(product)
 }
 
+// 处理添加到购物车事件
+const handleAddToCart = (product: any) => {
+  console.log('添加到购物车:', product.name)
+  // 这里可以添加购物车逻辑
+  // addToCart(product)
+}
 
 // 处理查看全部植物事件
 const handleViewAll = () => {
@@ -139,56 +126,80 @@ const handleViewAll = () => {
   margin: 0 auto;
 }
 
-.page-header {
-  text-align: center;
-  margin-bottom: 60px;
-}
-
-.page-title {
-  font-size: 42px;
-  font-weight: bold;
-  color: #333333;
-  margin-bottom: 24px;
-  line-height: 1.2;
-}
-
-.page-description {
-  font-size: 18px;
-  color: #333333;
-  line-height: 1.6;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
 .products-section {
   margin-bottom: 60px;
+  width: 100%;
+  max-width: 1272px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 标题区域 */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  padding: 0;
+  width: 100%;
+}
+
+.section-title {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 32px;
+  font-weight: 500;
+  color: #2d2d2d;
+  margin: 0;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+.view-all-link {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 14px;
+  color: #2d2d2d;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.view-all-link:hover {
+  opacity: 0.7;
 }
 
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, auto);
   gap: 24px;
+  justify-content: start;
+  width: 100%;
 }
 
 .product-card {
   background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
+  overflow: visible;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
 }
 
 .product-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+.product-image-wrapper {
+  position: relative;
+  width: fit-content;
 }
 
 .product-image {
   position: relative;
-  width: 100%;
-  height: 200px;
+  width: 300px;
+  height: 370px;
   overflow: hidden;
+  background-color: #f5f5f5;
 }
 
 .product-image img {
@@ -199,58 +210,122 @@ const handleViewAll = () => {
 }
 
 .product-card:hover .product-image img {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
-.product-badge {
+/* 右上角收藏图标 */
+.wishlist-icon {
   position: absolute;
   top: 12px;
   right: 12px;
-  padding: 6px 12px;
-  border-radius: 16px;
-  font-size: 12px;
-  font-weight: 500;
+  width: 36px;
+  height: 36px;
+  background: white;
+  border: 2px solid #134a21;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+  padding: 0;
+}
+
+.wishlist-icon:hover {
+  background: #f0f0f0;
+  transform: scale(1.1);
+}
+
+.wishlist-icon :deep(svg) {
+  font-size: 16px;
+  color: #134a21;
+}
+
+/* 左下角售罄横幅 */
+.sold-out-banner {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: rgba(200, 200, 200, 0.85);
   color: white;
-}
-
-.product-badge.bestseller {
-  background-color: #ff6b35;
-}
-
-.product-badge.new {
-  background-color: #52c41a;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  z-index: 10;
+  backdrop-filter: blur(4px);
 }
 
 .product-info {
-  padding: 24px;
-  background-color: #f5f5f5;
+  padding: 20px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+/* 品牌/分类 */
+.product-brand {
+  font-size: 14px;
+  font-weight: 700;
+  color: #134a21;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .product-name {
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 16px;
+  font-weight: 400;
   color: #333333;
-  margin-bottom: 12px;
-  line-height: 1.3;
-}
-
-.product-description {
-  font-size: 14px;
-  color: #666666;
-  line-height: 1.5;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
+  line-height: 1.4;
+  flex: 1;
 }
 
 .product-footer {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
+  margin-top: auto;
 }
 
 .product-price {
-  font-size: 24px;
-  font-weight: bold;
-  color: #333333;
+  font-size: 18px;
+  font-weight: 600;
+  color: #134a21;
+}
+
+/* 添加到购物车按钮 */
+.add-to-cart-button {
+  background: white;
+  border: 2px solid #134a21;
+  border-radius: 20px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.add-to-cart-button:hover {
+  background: #134a21;
+  color: white;
+}
+
+.add-to-cart-button:hover .plus-icon,
+.add-to-cart-button:hover .cart-icon {
+  color: white;
+}
+
+.plus-icon,
+.cart-icon {
+  font-size: 14px;
+  color: #134a21;
+  transition: color 0.3s ease;
 }
 
 .cta-section {
@@ -289,9 +364,14 @@ const handleViewAll = () => {
 }
 
 @media (max-width: 1200px) {
+  .products-section {
+    max-width: 648px;
+  }
+  
   .products-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, auto);
     gap: 20px;
+    justify-content: start;
   }
 }
 
@@ -300,21 +380,36 @@ const handleViewAll = () => {
     padding: 0 20px;
   }
   
-  .page-title {
-    font-size: 32px;
+  .products-section {
+    max-width: 300px;
   }
   
-  .page-description {
-    font-size: 16px;
+  .section-header {
+    margin-bottom: 30px;
+  }
+  
+  .section-title {
+    font-size: 24px;
+  }
+  
+  .view-all-link {
+    font-size: 13px;
   }
   
   .products-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: auto;
     gap: 20px;
+    justify-content: start;
+  }
+  
+  .product-image {
+    width: 300px;
+    height: 370px;
   }
   
   .product-info {
     padding: 20px;
+    width: 300px;
   }
   
   .product-name {

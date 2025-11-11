@@ -46,6 +46,7 @@ import type { Swiper as SwiperType } from 'swiper'
 import { Pagination } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/pagination'
+import displayImg from '../public/display.png'   
 
 // 注册 Swiper 模块
 const modules = [Pagination]
@@ -107,35 +108,35 @@ interface ImageItem {
 
 const images = ref<ImageItem[]>([
   {
-    url: 'https://plnts.com/_next/image?url=https%3A%2F%2Fplnts-api.ams3.digitaloceanspaces.com%2Fmain%2FInstagram_photo_6_5a64928cac.jpg&w=640&q=80',
+    url: displayImg,
     alt: '室内绿植装饰 - 客厅'
   },
   {
-    url: 'https://plnts.com/_next/image?url=https%3A%2F%2Fplnts-api.ams3.digitaloceanspaces.com%2Fmain%2FInstagram_photo_7_581ff2558c.jpg&w=640&q=80',
+    url: displayImg,
     alt: '室内绿植装饰 - 餐厨区域'
   },
   {
-    url: 'https://plnts.com/_next/image?url=https%3A%2F%2Fplnts-api.ams3.digitaloceanspaces.com%2Fmain%2FInstagram_photo_2_5c838cc70d.jpg&w=640&q=80',
+    url: displayImg,
     alt: '室内绿植装饰 - 厨房'
   },
   {
-    url: 'https://plnts.com/_next/image?url=https%3A%2F%2Fplnts-api.ams3.digitaloceanspaces.com%2Fmain%2FInstagram_photo_3_c12825d620.jpg&w=640&q=80',
+    url: displayImg,
     alt: '室内绿植装饰 - 室内外过渡区'
   },
   {
-    url: 'https://plnts.com/_next/image?url=https%3A%2F%2Fplnts-api.ams3.digitaloceanspaces.com%2Fmain%2FInstagram_photo_3_c12825d620.jpg&w=640&q=80',
+    url: displayImg,
     alt: '室内绿植装饰 - 客厅'
   },
   {
-    url: 'https://plnts.com/_next/image?url=https%3A%2F%2Fplnts-api.ams3.digitaloceanspaces.com%2Fmain%2FInstagram_photo_3_c12825d620.jpg&w=640&q=80',
+    url: displayImg,
     alt: '室内绿植装饰 - 卧室'
   },
   {
-    url: 'https://plnts.com/_next/image?url=https%3A%2F%2Fplnts-api.ams3.digitaloceanspaces.com%2Fmain%2FInstagram_photo_3_c12825d620.jpg&w=640&q=80',
+    url: displayImg,
     alt: '室内绿植装饰 - 客厅'
   },
   {
-    url: 'https://plnts.com/_next/image?url=https%3A%2F%2Fplnts-api.ams3.digitaloceanspaces.com%2Fmain%2FInstagram_photo_5_8f6d628452.jpg&w=640&q=80',
+    url: displayImg,
     alt: '室内绿植装饰 - 客厅'
   },
 ])
