@@ -2,7 +2,22 @@ import { ref ,computed} from 'vue'
 import us from '../public/us.png'   
 
 export const useData = () => {
+    // 产品数据
     const products = ref([
+        {
+            name: 'Euphorbia actinoclada',
+            species: 'Euphorbia actinoclada',
+            PotDiameter: '6.5CM',
+            priceRanges: [
+                { quantity: '2-20', price: 30 },
+                { quantity: '21-50', price: 27 },
+                { quantity: '51+', price: 25 }
+            ],
+            averagePrice: 27.33,
+            description: '独特的多肉植物，具有美丽的形态和耐旱特性',
+            image: us,
+            isForDisplay: true
+        },
         {
             name: 'Euphorbia actinoclada',
             species: 'Euphorbia actinoclada',
@@ -65,9 +80,66 @@ export const useData = () => {
         return products.value.filter(product => product.isForDisplay === true)
     })
 
+    // Shop By Collection 数据
+    const collections = ref([
+        {
+            name: 'Best Sellers',
+            image: us, // 这里需要替换为实际图片路径
+        },
+        {
+            name: 'Plant Gifts',
+            image: us,
+        },
+        {
+            name: 'Pet Friendly',
+            image: us,
+        },
+        {
+            name: 'Smart Watering',
+            image: us,
+        },
+        {
+            name: 'Easy Care',
+            image: us,
+        },
+        {
+            name: 'Plant Care',
+            image: us,
+        },
+    ])
+
+    // Shop By Plant Type 数据
+    const plantTypes = ref([
+        {
+            name: 'Orchids',
+            image: us, // 这里需要替换为实际图片路径
+        },
+        {
+            name: 'Snake Plants',
+            image: us,
+        },
+        {
+            name: 'Bromeliads',
+            image: us,
+        },
+        {
+            name: 'Air Plants',
+            image: us,
+        },
+        {
+            name: 'Ficus',
+            image: us,
+        },
+        {
+            name: 'Succulents',
+            image: us,
+        },
+    ])
+
     return {
         products,
         displayProducts,
-
+        collections,
+        plantTypes,
     }
 }

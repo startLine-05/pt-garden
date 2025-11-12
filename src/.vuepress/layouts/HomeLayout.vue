@@ -19,8 +19,8 @@ import Footer from "./Footer.vue";
     </template>
     <template #content>
       <Products></Products>
-      <Scene></Scene>
-      <Advantage></Advantage>
+      <!-- <Scene></Scene> -->
+      <!-- <Advantage></Advantage> -->
       <!-- <Guide></Guide> -->
       <Display></Display>
       <About></About>
