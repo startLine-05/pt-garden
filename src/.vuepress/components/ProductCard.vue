@@ -162,6 +162,7 @@ const handleAddToCart = () => {
 
 /* 品牌/分类 */
 .product-brand {
+  margin-top: 20px;
   font-size: 14px;
   font-weight: 700;
   color: #134a21;
