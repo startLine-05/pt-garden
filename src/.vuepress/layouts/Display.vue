@@ -1,8 +1,5 @@
 <template>
   <div class="display-page">
-    <div class="head">
-      Showcase
-    </div>
     <div class="display-container">
       <div class="swiper-wrapper">
         <swiper
@@ -144,17 +141,8 @@ const images = ref<ImageItem[]>([
 
 <style scoped>
 .display-page {
-  background-color: #faf9f6;
+  background-color: #f6f5ef;
   padding: 60px 0 0 0;
-}
-.head{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 60px;
-  font-weight: bold;
-  font-size: 46px;
-  margin-bottom: 60px;
 }
 
 .display-container {

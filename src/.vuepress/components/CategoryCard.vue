@@ -53,7 +53,7 @@ const handleClick = () => {
 .category-image {
   position: relative;
   width: 100%;
-  height: 280px;
+  aspect-ratio: 1 / 1; /* 确保宽高比为 1:1，保持正方形 */
   overflow: hidden;
   background-color: #f5f5f5;
   border-radius: 12px;
@@ -81,10 +81,7 @@ const handleClick = () => {
 }
 
 @media (max-width: 768px) {
-  .category-image {
-    height: 240px;
-  }
-
+  /* 移动端保持正方形，无需单独设置高度 */
   .category-label {
     font-size: 14px;
     margin-top: 12px;

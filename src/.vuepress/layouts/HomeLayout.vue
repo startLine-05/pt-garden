@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Layout } from "vuepress-theme-hope/client";
 import HeroInfo from "./HeroInfo.vue";
+import Advantages from "./Advantages.vue";
 import Products from "./Products.vue";
 import Scene from "./Scene.vue";
 import Advantage from "./Advantage.vue";
@@ -18,6 +19,7 @@ import Footer from "./Footer.vue";
       </div>
     </template>
     <template #content>
+      <Advantages></Advantages>
       <Products></Products>
       <!-- <Scene></Scene> -->
       <!-- <Advantage></Advantage> -->

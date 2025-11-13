@@ -1,5 +1,7 @@
 import { ref ,computed} from 'vue'
-import us from '../public/us.png'   
+import us from '../public/us.png'  
+import sun from '../public/suc.png'
+import ac from '../public/ac.png'
 
 export const useData = () => {
     // 产品数据
@@ -84,27 +86,27 @@ export const useData = () => {
     const collections = ref([
         {
             name: 'Best Sellers',
-            image: us, // 这里需要替换为实际图片路径
+            image: ac, // 这里需要替换为实际图片路径
         },
         {
             name: 'Plant Gifts',
-            image: us,
+            image: ac,
         },
         {
             name: 'Pet Friendly',
-            image: us,
+            image: ac,
         },
         {
             name: 'Smart Watering',
-            image: us,
+            image: ac,
         },
         {
             name: 'Easy Care',
-            image: us,
+            image: ac,
         },
         {
             name: 'Plant Care',
-            image: us,
+            image: ac,
         },
     ])
 
@@ -112,27 +114,27 @@ export const useData = () => {
     const plantTypes = ref([
         {
             name: 'Orchids',
-            image: us, // 这里需要替换为实际图片路径
+            image: sun, // 这里需要替换为实际图片路径
         },
         {
             name: 'Snake Plants',
-            image: us,
+            image: sun,
         },
         {
             name: 'Bromeliads',
-            image: us,
+            image: sun,
         },
         {
             name: 'Air Plants',
-            image: us,
+            image: sun,
         },
         {
             name: 'Ficus',
-            image: us,
+            image: sun,
         },
         {
             name: 'Succulents',
-            image: us,
+            image: sun,
         },
     ])
 
