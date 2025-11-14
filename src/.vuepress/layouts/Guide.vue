@@ -1,251 +1,238 @@
 <template>
   <div class="guide-page">
+    <!-- 顶部边框线 -->
+    <div class="border-line top-border"></div>
+    
     <div class="guide-container">
-      <!-- 页面标题 -->
-      <div class="page-header">
-        <h1 class="page-title">热带植物养护指南</h1>
-        <p class="page-subtitle">即使是新手也能轻松掌握热带植物的养护技巧,让你的绿植茁壮成长,长久保持生机。</p>
+      <!-- 左侧插图区域 -->
+      <div class="illustration-section">
+        <img :src="tgImg" alt="Gardening Tools" class="illustration-image" />
       </div>
 
-      <!-- 内容卡片 -->
-      <div class="cards-section">
-        <div class="cards-grid">
-          <div 
-            v-for="guide in guides" 
-            :key="guide.id" 
-            class="guide-card"
-            @click="handleCardClick(guide)"
-          >
-            <div class="card-image">
-              <img :src="guide.image" :alt="guide.title" />
-            </div>
-            <div class="card-content">
-              <h3 class="card-title">{{ guide.title }}</h3>
-              <p class="card-description">{{ guide.description }}</p>
-              <a 
-                href="#" 
-                class="read-more-link"
-                @click.stop="handleReadMoreClick(guide)"
-              >
-                阅读更多
-                <RightOutlined class="arrow-icon" />
-              </a>
-            </div>
-          </div>
-        </div>
+      <!-- 右侧文本和按钮区域 -->
+      <div class="content-section">
+        <p class="intro-text">Join our rewards program</p>
+        <h1 class="main-title">The Garden Club</h1>
+        <p class="description-text">
+          Get rewarded for your purchases. Earn points when you shop and get VIP perks as a member of the club.
+        </p>
+        <button class="cta-button" @click="handleCreateAccount">
+          Create my account
+        </button>
       </div>
     </div>
+
+    <!-- 底部边框线 -->
+    <div class="border-line bottom-border"></div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { RightOutlined } from '@ant-design/icons-vue'
+import tgImg from '../public/tg.png'
 
-// 指南数据
-const guides = ref([
-  {
-    id: 1,
-    title: '正确的浇水方式',
-    description: '了解不同热带植物的浇水需求,避免过度浇水或浇水不足,让植物健康生长。',
-    image: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=400&h=250&fit=crop',
-    link: '/guide/watering',
-    readMoreLink: '/guide/watering/detail'
-  },
-  {
-    id: 2,
-    title: '光照需求解析',
-    description: '热带植物对光照的需求各不相同,掌握正确的光照知识,让植物生长更旺盛。',
-    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=250&fit=crop',
-    link: '/guide/lighting',
-    readMoreLink: '/guide/lighting/detail'
-  },
-  {
-    id: 3,
-    title: '常见问题解决',
-    description: '针对热带植物常见的黄叶、枯萎等问题,提供专业的解决方案和预防措施。',
-    image: 'https://images.unsplash.com/photo-1501139083538-0139583c060f?w=400&h=250&fit=crop',
-    link: '/guide/problems',
-    readMoreLink: '/guide/problems/detail'
-  }
-])
-
-// 处理卡片点击事件
-const handleCardClick = (guide: any) => {
-  console.log('点击卡片:', guide.title)
+// 处理创建账户按钮点击事件
+const handleCreateAccount = () => {
+  console.log('点击创建账户按钮')
   // 这里可以添加路由跳转逻辑
-  // router.push(guide.link)
-  // 或者打开新页面
-  // window.open(guide.link, '_blank')
-  
-  // 示例：显示提示信息
-  alert(`点击了卡片: ${guide.title}`)
-}
-
-// 处理"阅读更多"点击事件
-const handleReadMoreClick = (guide: any) => {
-  console.log('点击阅读更多:', guide.title)
-  // 这里可以添加路由跳转逻辑
-  // router.push(guide.readMoreLink)
-  // 或者打开新页面
-  // window.open(guide.readMoreLink, '_blank')
-  
-  // 示例：显示提示信息
-  alert(`阅读更多: ${guide.title}`)
+  // router.push('/register')
+  // 或者打开注册页面
+  // window.open('/register', '_blank')
 }
 </script>
 
 <style scoped>
+/* 页面容器 */
 .guide-page {
-  background-color: #f5f5f5;
+  background-color: #f6f5ef; /* 浅米色背景 */
   padding: 60px 0;
+  position: relative;
 }
 
+/* 边框线 */
+.border-line {
+  width: 100%;
+  height: 1px;
+  background-color: #d4d4d4; /* 浅灰色边框 */
+  position: absolute;
+  left: 0;
+}
+
+.top-border {
+  top: 0;
+}
+
+.bottom-border {
+  bottom: 0;
+}
+
+/* 主要内容容器 */
 .guide-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 60px 40px;
+  display: flex;
+  align-items: center;
+  gap: 80px;
 }
 
-.page-header {
-  text-align: center;
-  margin-bottom: 80px;
+/* 左侧插图区域 */
+.illustration-section {
+  flex: 1;
+  /* width: 200px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.page-title {
-  font-size: 42px;
-  font-weight: bold;
-  color: #333333;
+/* 插图图片样式 */
+.illustration-image {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* 右侧内容区域 */
+.content-section {
+  flex: 3;
+  min-width: 300px;
+  /* max-width: 500px; */
+}
+
+/* 介绍文本 */
+.intro-text {
+  font-size: 16px;
+  color: #000000;
+  margin-bottom: 12px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 400;
+}
+
+/* 主标题 */
+.main-title {
+  font-size: 48px;
+  color: #000000;
   margin-bottom: 24px;
+  font-family: serif; /* 衬线字体 */
+  font-weight: 400;
   line-height: 1.2;
 }
 
-.page-subtitle {
+/* 描述文本 */
+.description-text {
   font-size: 18px;
-  color: #666666;
+  color: #000000;
+  margin-bottom: 32px;
   line-height: 1.6;
-  max-width: 800px;
-  margin: 0 auto;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 400;
 }
 
-.cards-section {
-  margin-bottom: 60px;
-}
-
-.cards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 40px;
-}
-
-.guide-card {
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-}
-
-.guide-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-}
-
-.guide-card:active {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-}
-
-.card-image {
-  width: 100%;
-  height: 250px;
-  overflow: hidden;
-}
-
-.card-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.guide-card:hover .card-image img {
-  transform: scale(1.05);
-}
-
-.card-content {
-  padding: 32px;
-}
-
-.card-title {
-  font-size: 24px;
-  font-weight: bold;
-  color: #333333;
-  margin-bottom: 16px;
-  line-height: 1.3;
-}
-
-.card-description {
-  font-size: 16px;
-  color: #666666;
-  line-height: 1.6;
-  margin-bottom: 24px;
-}
-
-.read-more-link {
-  color: #333333;
-  text-decoration: none;
+/* 按钮样式 */
+.cta-button {
+  background-color: #2d5016; /* 深绿色 */
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 32px;
   font-size: 16px;
   font-weight: 500;
-  transition: color 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  min-width: 180px;
 }
 
-.read-more-link:hover {
-  color: #52c41a;
+.cta-button:hover {
+  background-color: #1f3a0f;
+  transform: translateY(-2px);
 }
 
-.arrow-icon {
-  color: #52c41a;
-  font-size: 14px;
-  transition: transform 0.3s ease;
+.cta-button:active {
+  transform: translateY(0);
+  background-color: #152a08;
 }
 
-.read-more-link:hover .arrow-icon {
-  transform: translateX(4px);
-}
-
-@media (max-width: 768px) {
+/* 平板设备响应式 (768px - 1024px) */
+@media (max-width: 1024px) {
   .guide-container {
-    padding: 0 16px;
+    gap: 50px;
+    padding: 50px 30px;
   }
-  
-  .page-title {
-    font-size: 32px;
+
+  .main-title {
+    font-size: 40px;
   }
-  
-  .page-subtitle {
+
+  .description-text {
     font-size: 16px;
   }
-  
-  .cards-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
+}
+
+/* 移动设备响应式 (最大宽度 768px) */
+@media (max-width: 768px) {
+  .guide-page {
+    padding: 40px 0;
   }
-  
-  .card-content {
-    padding: 24px;
+
+  .guide-container {
+    flex-direction: column; /* 移动端改为垂直布局 */
+    gap: 40px;
+    padding: 40px 20px;
   }
-  
-  .card-title {
-    font-size: 20px;
+
+  .illustration-section {
+    width: 100%;
+    min-width: auto;
   }
-  
-  .card-description {
+
+  .content-section {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .main-title {
+    font-size: 36px;
+  }
+
+  .description-text {
     font-size: 15px;
+  }
+
+  .cta-button {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+/* 小屏移动设备响应式 (最大宽度 480px) */
+@media (max-width: 480px) {
+  .guide-page {
+    padding: 30px 0;
+  }
+
+  .guide-container {
+    padding: 30px 15px;
+    gap: 30px;
+  }
+
+  .intro-text {
+    font-size: 14px;
+  }
+
+  .main-title {
+    font-size: 28px;
+  }
+
+  .description-text {
+    font-size: 14px;
+  }
+
+  .cta-button {
+    font-size: 14px;
+    padding: 12px 24px;
   }
 }
 </style>
