@@ -136,8 +136,8 @@ const breakpoints = {
 <style scoped>
 /* 页面容器 */
 .advantage-page {
-  background-color: #faf9f6; /* 浅米色背景 */
   padding: 60px 0;
+  background-color: #e7e3d9;
 }
 
 /* 内容容器 */

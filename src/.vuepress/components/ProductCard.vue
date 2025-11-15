@@ -76,7 +76,6 @@ const handleAddToCart = () => {
 
 <style scoped>
 .product-card {
-  background: white;
   overflow: visible;
   display: flex;
   flex-direction: column;
@@ -91,10 +90,9 @@ const handleAddToCart = () => {
 .product-image {
   position: relative;
   width: 100%;
-  height: 370px;
+  aspect-ratio: 4 / 5;
   overflow: hidden;
   background-color: #f5f5f5;
-  min-height: 370px;
 }
 
 .product-image img {
@@ -154,7 +152,6 @@ const handleAddToCart = () => {
 }
 
 .product-info {
-  background-color: white;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -225,8 +222,7 @@ const handleAddToCart = () => {
 
 @media (max-width: 768px) {
   .product-image {
-    height: 300px;
-    min-height: 300px;
+    aspect-ratio: 2 / 3; /* 保持比例，在小屏上由容器宽度决定高度 */
   }
 
   .product-info {

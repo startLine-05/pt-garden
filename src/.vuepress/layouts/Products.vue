@@ -38,13 +38,6 @@
       </div>
     </div>
 
-    <!-- 查看全部按钮 -->
-    <div class="cta-section">
-      <button class="view-all-button" @click="handleViewAll">
-        查看全部植物
-        <RightOutlined class="button-arrow" />
-      </button>
-    </div>
   </div>
 </template>
 
@@ -69,7 +62,6 @@ const handleViewAll = () => {
 
 <style scoped>
 .products-page {
-  background-color: #ffffff;
   padding: 80px 0;
   display: flex;
   justify-content: center;
@@ -136,40 +128,6 @@ const handleViewAll = () => {
   max-width: calc((100% - 5 * 24px) / 6);
 }
 
-.cta-section {
-  text-align: center;
-}
-
-.view-all-button {
-  background: white;
-  border: 1px solid #52c41a;
-  color: #52c41a;
-  padding: 12px 24px;
-  border-radius: 6px;
-  font-size: 16px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.view-all-button:hover {
-  background-color: #52c41a;
-  color: white;
-}
-
-.button-arrow {
-  color: #52c41a;
-  font-size: 14px;
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.view-all-button:hover .button-arrow {
-  color: white;
-  transform: translateX(4px);
-}
 
 @media (max-width: 1200px) {
   .products-section {

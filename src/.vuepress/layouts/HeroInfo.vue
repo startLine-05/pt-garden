@@ -1,171 +1,90 @@
 <template>
-  <!-- 主要内容容器 -->
-  <div class="content-container">
-    <!-- 主标题 -->
-    <h1 class="main-title animate-fade-in-up">Bring the Tropical Paradise into<br />Your Home</h1>
-
-    <!-- 描述文本 -->
-    <!-- <p class="description animate-fade-in-up animation-delay-100">
-      Discover our curated collection of rare tropical plants from around the world.<br />
-      Each plant is carefully nurtured to bring vibrant life and exotic beauty to your home.
-    </p> -->
-
-    <!-- 按钮组 -->
-    <div class="button-group animate-fade-in-up animation-delay-200">
-      <button class="primary-button">Explore Plants</button>
-      <button class="secondary-button">Care Guide</button>
+  <section class="hero">
+    <div class="hero__content">
+      <div class="kicker">NEW ARRIVALS</div>
+      <h1 class="hero__title">Smart Watering<br />Collection</h1>
+      <p class="hero__desc">More of your favorites are available with built-in hydration.</p>
+      <button class="hero__cta" aria-label="Shop Smart Watering">Shop Smart Watering</button>
     </div>
-
-    <!-- 服务特点（使用Ant Design Icons） -->
-    <!-- <div class="features-container">
-      <div class="feature-card">
-        <SmileOutlined  class="feature-icon" />
-        <span class="feature-text">Low Shipping</span>
-      </div>
-      <div class="feature-card">
-        <SafetyOutlined class="feature-icon" />
-        <span class="feature-text">Health Guarantee</span>
-      </div>
-      <div class="feature-card">
-        <RedoOutlined class="feature-icon" />
-        <span class="feature-text">30-Day Returns</span>
-      </div>
-    </div> -->
-  </div>
+  </section>
 </template>
 
 <script setup>
-import {
-  SmileOutlined,
-  SafetyOutlined,
-  RedoOutlined,
-} from "@ant-design/icons-vue";
+// 保留空间以便未来引入图标或响应式逻辑
 </script>
 
 <style scoped>
-/* 内容容器样式 */
-.content-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-/* 主标题样式 */
-.main-title {
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
-  font-weight: bold;
-  color: #fff;
-  line-height: 1.2;
-  margin-bottom: 80px;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
-  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
-  text-align: center;
-}
-
-/* 描述文本样式 */
-/* .description {
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 40px;
-  line-height: 1.6;
-  color: #fff;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
-  filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.6));
-} */
-
-/* 按钮组样式 */
-.button-group {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  margin-bottom: 64px;
-}
-
-@media (min-width: 640px) {
-  .button-group {
-    flex-direction: row;
-  }
-}
-
-/* 主要按钮样式 */
-.primary-button {
-  background-color: #166534;
-  color: white;
-  padding: 12px 32px;
-  border-radius: 9999px;
-  font-size: 1.125rem;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
-
-.primary-button:hover {
-  background-color: #14532d;
-  transform: scale(1.05);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05);
-}
-
-/* 次要按钮样式 */
-.secondary-button {
-  background-color: white;
-  color: #166534;
-  border: 1px solid #166534;
-  padding: 12px 32px;
-  border-radius: 9999px;
-  font-size: 1.125rem;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-}
-
-.secondary-button:hover {
-  background-color: #f9fafb;
-  transform: scale(1.05);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
-.features-container {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.feature-card {
+/* Hero 根容器 */
+.hero {
+  position: relative;
+  min-height: 340px;
   display: flex;
   align-items: center;
-  background: rgba(0, 0, 0, 0.6);
-  padding: 12px 20px;
-  border-radius: 25px;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-}
-
-.feature-card:hover {
-  background: rgba(0, 0, 0, 0.8);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-}
-
-.feature-icon {
-  color: #22c55e;
-  margin-right: 8px;
-  font-size: 18px;
-  filter: drop-shadow(0 0 4px rgba(34, 197, 94, 0.6));
-}
-
-.feature-text {
+  padding: 48px 36px;
   color: #fff;
-  font-weight: 600;
+  overflow: hidden;
+}
+
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 760px;
+}
+
+.kicker {
+  display: inline-block;
+  color: rgba(255,255,255,0.9);
   font-size: 14px;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  letter-spacing: 1px;
+  margin-bottom: 18px;
+  background: rgba(255,255,255,0.06);
+  padding: 8px 14px;
+  border-radius: 999px;
 }
+
+.hero__title {
+  font-size: 64px;
+  line-height: 0.98;
+  margin: 0 0 18px 0;
+  font-weight: 400;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.35);
+}
+
+.hero__desc {
+  margin: 0 0 28px 0;
+  color: rgba(255,255,255,0.9);
+  font-size: 18px;
+  max-width: 560px;
+}
+
+.hero__cta {
+  background: rgba(227,135,120,0.95);
+  border: none;
+  color: white;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(220,120,110,0.12);
+}
+
+.hero__cta:focus {
+  outline: 3px solid rgba(255,200,190,0.22);
+}
+
+/* 响应式 */
+@media (max-width: 800px) {
+  .hero { padding: 32px 20px; min-height: 300px; }
+  .hero__title { font-size: 40px; }
+  .hero__desc { font-size: 15px; }
+}
+
+@media (max-width: 420px) {
+  .hero__title { font-size: 32px; }
+  .kicker { font-size: 12px; padding: 6px 10px; }
+  .hero__cta { width: 100%; text-align: center; }
+}
+
 </style>

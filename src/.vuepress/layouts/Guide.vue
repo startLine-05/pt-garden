@@ -43,7 +43,6 @@ const handleCreateAccount = () => {
 <style scoped>
 /* 页面容器 */
 .guide-page {
-  background-color: #f6f5ef; /* 浅米色背景 */
   padding: 60px 0;
   position: relative;
 }

@@ -1,7 +1,24 @@
 // place your custom styles here
+// 页面底部间距
+.theme-container{
+    background-color: #f6f5ee;
+}
 .vp-page{
  padding-bottom: 0rem;
 }
+// 导航栏
+.vp-dropdown-wrapper{
+    font-size: 1rem;
+}
+.vp-dropdown-wrapper{
+    margin-right: 0.8rem;
+}
+
+// 主页
 .vp-hero-info-wrapper{
     height: 800px;
+    justify-content: start;
+}
+.vp-hero-info{
+ justify-content: start;
 }

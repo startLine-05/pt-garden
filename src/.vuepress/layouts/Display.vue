@@ -141,7 +141,6 @@ const images = ref<ImageItem[]>([
 
 <style scoped>
 .display-page {
-  background-color: #f6f5ef;
   padding: 60px 0 0 0;
 }
 

@@ -60,9 +60,8 @@ const advantages = ref<AdvantageItem[]>([
 <style scoped>
 /* 优势内容容器 - 使用 Flexbox 实现水平布局 */
 .advantages-container {
-    background-color: #faf9f6;
-    /* 浅米色背景 */
     width: 100%;
+    background-color: #efece4;
 
 
     display: flex;
