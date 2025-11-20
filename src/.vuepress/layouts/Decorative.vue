@@ -166,26 +166,29 @@ const slides = [
 /* top help section */
 .top {
   width: 100%;
+  box-sizing: border-box;
   background-color: #e7e3d9;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  align-items: center;
-  padding: 60px 40px;
-  margin: 0 auto 48px;
-  border-radius: 12px;
+  background-image: url('/help-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  padding: 60px;
+  margin-bottom: 100px;
+  position: relative;
 }
 
 /* 左侧内容区域样式优化 */
 .top__center {
-  padding: 0 20px;
+  width: 400px;
+  color: #ffffff;
+  padding: 0 60px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
 .top__center .eyebrow {
-  color: #6b6b6b;
   font-size: 14px;
   font-weight: 500;
   text-transform: uppercase;
@@ -197,7 +200,6 @@ const slides = [
 .top__center .top__title {
   font-size: 56px;
   margin: 0 0 24px 0;
-  color: #1e2a24;
   font-weight: 400;
   font-family: serif;
   line-height: 1.2;
@@ -205,7 +207,6 @@ const slides = [
 }
 
 .top__center .top__desc {
-  color: #444;
   font-size: 16px;
   line-height: 1.7;
   max-width: 500px;
@@ -215,10 +216,12 @@ const slides = [
 
 /* 右侧联系卡片区域 */
 .top__right {
+  flex: 1;
   display: flex;
   gap: 40px;
-  justify-content: flex-start;
+  justify-content: flex-end;
   flex-wrap: wrap;
+  margin-right: 100px;
 }
 
 .contact-card {

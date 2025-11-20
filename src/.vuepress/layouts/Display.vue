@@ -1,5 +1,9 @@
 <template>
   <div class="display-page">
+    <div class="display-head">
+      <h2 class="display-head__title">Showcase</h2>
+      <p class="display-head__desc">Discover how our plants transform living spaces into green sanctuaries</p>
+    </div>
     <div class="display-container">
       <div class="swiper-wrapper">
         <swiper
@@ -142,6 +146,35 @@ const images = ref<ImageItem[]>([
 <style scoped>
 .display-page {
   padding: 60px 0 0 0;
+}
+/* 展示区域头部 */
+.display-head {
+  max-width: 90%;
+  margin: 0 auto 60px;
+  padding: 0 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.display-head__title {
+  font-size: 42px;
+  font-weight: 400;
+  color: #2d5016;
+  margin: 0 0 16px 0;
+  font-family: serif;
+  line-height: 1.2;
+}
+
+.display-head__desc {
+  font-size: 18px;
+  color: #666666;
+  margin: 0;
+  line-height: 1.6;
+  max-width: 600px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 .display-container {
@@ -293,6 +326,20 @@ const images = ref<ImageItem[]>([
 }
 
 @media (max-width: 768px) {
+  .display-head {
+    margin-bottom: 40px;
+    padding: 0 15px;
+  }
+
+  .display-head__title {
+    font-size: 32px;
+    margin-bottom: 12px;
+  }
+
+  .display-head__desc {
+    font-size: 16px;
+  }
+
   .display-container {
     max-width: 95%;
     padding: 0 10px;
@@ -310,6 +357,22 @@ const images = ref<ImageItem[]>([
   .nav-button svg {
     width: 16px;
     height: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .display-head {
+    margin-bottom: 30px;
+    padding: 0 10px;
+  }
+
+  .display-head__title {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+
+  .display-head__desc {
+    font-size: 14px;
   }
 }
 </style>
