@@ -2,7 +2,7 @@
   <div class="product-card">
     <div class="product-image-wrapper">
       <div class="product-image">
-        <img :src="product.image" :alt="product.name" />
+        <img :src="product.cover" :alt="product.name" />
         <!-- 右上角收藏图标 -->
         <button 
           class="wishlist-icon" 
@@ -18,13 +18,13 @@
       </div>
     </div>
     <div class="product-info">
-      <!-- 品牌/分类 -->
-      <div class="product-brand">{{ product.species || 'Botanical' }}</div>
+      <!-- 植物分类 -->
+      <div class="product-brand">{{ product.category || 'Botanical' }}</div>
       <!-- 产品名称 -->
       <h3 class="product-name">{{ product.name }}</h3>
       <!-- 价格和按钮 -->
       <div class="product-footer">
-        <span class="product-price">${{ product.averagePrice?.toFixed(2) || '0.00' }}</span>
+        <span class="product-price">${{ (product.averagePrice || product.price)?.toFixed(2) || '0.00' }}</span>
         <button 
           class="add-to-cart-button" 
           @click.stop="handleAddToCart"
@@ -40,21 +40,14 @@
 
 <script setup lang="ts">
 import { StarOutlined, PlusOutlined, ShoppingCartOutlined } from '@ant-design/icons-vue'
-
-// 定义产品类型
-interface Product {
-  id?: number
-  name: string
-  species?: string
-  averagePrice?: number
-  image: string
-  soldOut?: boolean
-  [key: string]: any
-}
-
+import { Product } from '../data/use-products'
 // 定义 props
 interface Props {
-  product: Product
+  product: Product & {
+    image?: string
+    averagePrice?: number
+    soldOut?: boolean
+  }
 }
 
 const props = defineProps<Props>()

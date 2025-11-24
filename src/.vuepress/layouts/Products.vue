@@ -42,12 +42,22 @@
 </template>
 
 <script setup lang="ts">
-import { RightOutlined } from '@ant-design/icons-vue'
-import { useData } from './use-data.js'
+import { computed } from 'vue'
 import ProductCard from '../components/ProductCard.vue'
 import CategoryCard from '../components/CategoryCard.vue'
+import { useProducts } from '../data/use-products'
+import { useCollection } from '../data/use-collection'
+import { useCategory } from '../data/use-category'
 
-const { displayProducts, collections, plantTypes } = useData()
+const { products } = useProducts()
+const { collections } = useCollection()
+const { categories: plantTypes } = useCategory()
+
+// 获取用于显示的产品（前5个）
+const displayProducts = computed(() => {
+    return products.value.filter(product => product.isForDisplay === true).slice(0, 5)
+})
+
 
 // 处理查看全部植物事件
 const handleViewAll = () => {

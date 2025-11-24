@@ -1,4 +1,6 @@
+// 产品数据
 import { ref, computed } from 'vue'
+import Euphorbia from '../public/assets/products/Euphorbia.png'
 
 // 价格范围类型
 interface PriceRange {
@@ -35,12 +37,12 @@ export const useProducts = () => {
     const products = ref<Product[]>([
         {
             name: 'Euphorbia actinoclada',
-            cover: '/us.png',
-            description: '独特的多肉植物，具有美丽的形态和耐旱特性',
-            detailDescription: 'Euphorbia actinoclada 是一种独特的多肉植物，原产于非洲。它具有美丽的形态和出色的耐旱特性，非常适合室内种植。这种植物生长缓慢，形态优雅，是植物收藏家的理想选择。',
+            cover: Euphorbia,
+            description: 'A unique succulent with a beautiful shape and drought tolerance.',
+            detailDescription: 'Euphorbia actinoclada is a unique succulent native to Africa. It has a beautiful shape and excellent drought tolerance, making it ideal for indoor growing. This slow-growing plant has an elegant form and is an ideal choice for plant collectors.',
             category: 'Succulents',
             collection: ['Best Sellers', 'Easy Care'],
-            price: 30, // 补充必需的 price 字段
+            price: 30,
             priceRanges: [
                 { quantity: '2-20', price: 30 },
                 { quantity: '21-50', price: 27 },
@@ -49,7 +51,86 @@ export const useProducts = () => {
             tags: ['New', 'HOT'],
             species: 'Euphorbia actinoclada',
             PotDiameter: '6.5CM',
-            isForDisplay: true
+            isForDisplay: true,
+            averagePrice: 27.33
+        },
+        {
+            name: 'Aloe Vera',
+            cover: '/suc.png',
+            description: 'A succulent with medicinal properties.',
+            detailDescription: 'Aloe Vera is a succulent plant species of the genus Aloe. It is widely known for its medicinal properties and is used in many consumer products.',
+            category: 'Succulents',
+            collection: ['Easy Care', 'Medicinal'],
+            price: 15,
+            priceRanges: [
+                { quantity: '1-10', price: 15 },
+                { quantity: '11-30', price: 12 },
+            ],
+            tags: ['HOT'],
+            species: 'Aloe Vera',
+            PotDiameter: '10CM',
+            isForDisplay: true,
+            averagePrice: 13.50
+        },
+        {
+            name: 'Snake Plant',
+            cover: '/ac.png',
+            description: 'Low maintenance and great for air purification.',
+            detailDescription: 'The snake plant, or Sansevieria trifasciata, is a popular houseplant known for its ability to survive in low light and with infrequent watering. It also helps purify the air.',
+            category: 'Houseplants',
+            collection: ['Best Sellers', 'Easy Care'],
+            price: 25,
+            tags: [],
+            species: 'Sansevieria trifasciata',
+            PotDiameter: '12CM',
+            isForDisplay: true,
+            averagePrice: 25.00
+        },
+        {
+            name: 'Monstera Deliciosa',
+            cover: '/display.png',
+            description: 'A tropical plant with distinctive split leaves.',
+            detailDescription: 'Monstera Deliciosa, also known as the Swiss Cheese Plant, is a popular houseplant with large, glossy leaves that develop unique splits and holes as they mature.',
+            category: 'Houseplants',
+            collection: ['Best Sellers', 'Plant Gifts'],
+            price: 45,
+            priceRanges: [
+                { quantity: '1-5', price: 45 },
+                { quantity: '6-15', price: 40 },
+            ],
+            tags: ['New'],
+            species: 'Monstera deliciosa',
+            PotDiameter: '15CM',
+            isForDisplay: true,
+            averagePrice: 42.50
+        },
+        {
+            name: 'Pothos Golden',
+            cover: '/bg.png',
+            description: 'Easy-care trailing plant perfect for beginners.',
+            detailDescription: 'Pothos Golden is one of the easiest houseplants to grow, with heart-shaped leaves variegated with golden yellow. It thrives in various lighting conditions and is perfect for hanging baskets.',
+            category: 'Houseplants',
+            collection: ['Easy Care', 'Pet Friendly'],
+            price: 18,
+            tags: ['HOT'],
+            species: 'Epipremnum aureum',
+            PotDiameter: '10CM',
+            isForDisplay: true,
+            averagePrice: 18.00
+        },
+        {
+            name: 'Fiddle Leaf Fig',
+            cover: '/my.png',
+            description: 'A popular indoor tree with large, violin-shaped leaves.',
+            detailDescription: 'The Fiddle Leaf Fig (Ficus lyrata) is a popular indoor tree featuring very large, heavily veined, and glossy violin-shaped leaves that grow upright on a sleek trunk.',
+            category: 'Trees',
+            collection: ['Featured'],
+            price: 75,
+            tags: ['New'],
+            species: 'Ficus lyrata',
+            PotDiameter: '25CM',
+            isForDisplay: false,
+            averagePrice: 75.00
         }
     ])
 
