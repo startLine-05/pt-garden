@@ -1,6 +1,9 @@
 // 产品数据
 import { ref, computed } from 'vue'
-import Euphorbia from '../public/assets/products/Euphorbia.png'
+import { getImagePath, getRootImagePath } from '../utils/index.js'
+
+const getProductImagePath = getImagePath('products')
+const getRootImage = getRootImagePath()
 
 // 价格范围类型
 interface PriceRange {
@@ -32,12 +35,11 @@ export interface Product {
     priceRanges?: PriceRange[]
     [key: string]: any
 }
-
 export const useProducts = () => {
     const products = ref<Product[]>([
         {
             name: 'Euphorbia actinoclada',
-            cover: Euphorbia,
+            cover: getProductImagePath('Euphorbia.png'),
             description: 'A unique succulent with a beautiful shape and drought tolerance.',
             detailDescription: 'Euphorbia actinoclada is a unique succulent native to Africa. It has a beautiful shape and excellent drought tolerance, making it ideal for indoor growing. This slow-growing plant has an elegant form and is an ideal choice for plant collectors.',
             category: 'Succulents',
@@ -56,7 +58,7 @@ export const useProducts = () => {
         },
         {
             name: 'Aloe Vera',
-            cover: '/suc.png',
+            cover: getProductImagePath('Euphorbia.png'),
             description: 'A succulent with medicinal properties.',
             detailDescription: 'Aloe Vera is a succulent plant species of the genus Aloe. It is widely known for its medicinal properties and is used in many consumer products.',
             category: 'Succulents',
@@ -74,7 +76,7 @@ export const useProducts = () => {
         },
         {
             name: 'Snake Plant',
-            cover: '/ac.png',
+            cover: getProductImagePath('Euphorbia.png'),
             description: 'Low maintenance and great for air purification.',
             detailDescription: 'The snake plant, or Sansevieria trifasciata, is a popular houseplant known for its ability to survive in low light and with infrequent watering. It also helps purify the air.',
             category: 'Houseplants',
@@ -88,7 +90,7 @@ export const useProducts = () => {
         },
         {
             name: 'Monstera Deliciosa',
-            cover: '/display.png',
+            cover: getProductImagePath('Euphorbia.png'),
             description: 'A tropical plant with distinctive split leaves.',
             detailDescription: 'Monstera Deliciosa, also known as the Swiss Cheese Plant, is a popular houseplant with large, glossy leaves that develop unique splits and holes as they mature.',
             category: 'Houseplants',
@@ -106,7 +108,7 @@ export const useProducts = () => {
         },
         {
             name: 'Pothos Golden',
-            cover: '/bg.png',
+            cover: getProductImagePath('Euphorbia.png'),
             description: 'Easy-care trailing plant perfect for beginners.',
             detailDescription: 'Pothos Golden is one of the easiest houseplants to grow, with heart-shaped leaves variegated with golden yellow. It thrives in various lighting conditions and is perfect for hanging baskets.',
             category: 'Houseplants',
@@ -120,7 +122,7 @@ export const useProducts = () => {
         },
         {
             name: 'Fiddle Leaf Fig',
-            cover: '/my.png',
+            cover: getProductImagePath('Euphorbia.png'),
             description: 'A popular indoor tree with large, violin-shaped leaves.',
             detailDescription: 'The Fiddle Leaf Fig (Ficus lyrata) is a popular indoor tree featuring very large, heavily veined, and glossy violin-shaped leaves that grow upright on a sleek trunk.',
             category: 'Trees',

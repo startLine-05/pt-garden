@@ -22,3 +22,16 @@
 .vp-hero-info{
  justify-content: start;
 }
+
+
+// 内容区域样式（排除 custom 类）
+[vp-content]:not(.custom) {
+    
+    background-color: red;
+    width: 1980px !important;
+}
+
+#markdown-content{
+   width: 100%;
+   background-color: aqua;
+}

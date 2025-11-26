@@ -1,4 +1,7 @@
 import { ref } from 'vue'
+import { getImagePath } from '../utils/index.js'
+
+const getCategoryImagePath = getImagePath('category')
 
 interface Category {
     name: string
@@ -9,27 +12,27 @@ export const useCategory = () => {
     const categories = ref<Category[]>([
         {
             name: 'Orchids',
-            image: '/assets/category/Succulents.png',
+            image: getCategoryImagePath('Succulents.png'),
         },
         {
             name: 'Snake Plants',
-            image: '/assets/category/Succulents.png',
+            image: getCategoryImagePath('Succulents.png'),
         },
         {
             name: 'Bromeliads',
-            image: '/assets/category/Succulents.png',
+            image: getCategoryImagePath('Succulents.png'),
         },
         {
             name: 'Air Plants',
-            image: '/assets/category/Succulents.png',
+            image: getCategoryImagePath('Succulents.png'),
         },
         {
             name: 'Ficus',
-            image: '/assets/category/Succulents.png',
+            image: getCategoryImagePath('Succulents.png'),
         },
         {
             name: 'Succulents',
-            image: '/assets/category/Succulents.png',
+            image: getCategoryImagePath('Succulents.png'),
         },
     ])
     return {

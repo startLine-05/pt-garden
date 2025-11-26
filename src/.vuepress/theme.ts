@@ -12,6 +12,9 @@ export default hopeTheme({
 
   logo: "logo.png",
 
+  // 禁用暗色模式切换
+  darkmode: "disable",
+
   // 导航栏
   navbar,
   navbarLayout: {
